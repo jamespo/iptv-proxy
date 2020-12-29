@@ -73,6 +73,7 @@ var rootCmd = &cobra.Command{
 				Hostname: viper.GetString("hostname"),
 				Port:     viper.GetInt64("port"),
 			},
+			AdvertisedPort:     viper.GetInt64("advertised-port"),
 			RemoteURL:          remoteHostURL,
 			XtreamUser:         config.CredentialString(xtreamUser),
 			XtreamPassword:     config.CredentialString(xtreamPassword),
@@ -116,6 +117,7 @@ func init() {
 	rootCmd.Flags().StringP("m3u-file-name", "", "iptv.m3u", `name of the new proxified m3u file e.g "http://poxy.com/iptv.m3u"`)
 	rootCmd.Flags().StringP("custom-endpoint", "", "", `custom endpoint "http://poxy.com/<custom-endpoint>/iptv.m3u"`)
 	rootCmd.Flags().Int64("port", 8080, "Port to expose the IPTVs endpoints")
+	rootCmd.Flags().Int64("advertised-port", 8081, "Port returned in URLs")
 	rootCmd.Flags().String("hostname", "", "Hostname or IP to expose the IPTVs endpoints")
 	rootCmd.Flags().BoolP("https", "", false, "Activate https for urls proxy")
 	rootCmd.Flags().String("user", "usertest", "user UNSAFE(temp auth to access proxy)")

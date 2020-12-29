@@ -152,7 +152,7 @@ func (c *Config) replaceURL(uri string, xtream bool) (string, error) {
 		protocol,
 		basicAuth,
 		c.HostConfig.Hostname,
-		c.HostConfig.Port,
+		c.AdvertisedPort,
 		customEnd,
 		path,
 	)
